@@ -6,31 +6,9 @@ h2 {
   font-size: 2.5rem;
 }
 
-h3 {
-  font-size: 2rem;
-}
-
-h4 {
-  font-size: 1.5rem;
-}
-
-h5 {
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: .5rem;
-}
-
 .game {
 	margin: 0 100px;
 }
-
-@media only screen and (max-width: 768px) {
-	.game {
-		margin: 0;
-	}
-} 
 
 .game-header {
 	color: white;
@@ -79,3 +57,9 @@ h6 {
 .reset-game {
 	margin: 5px;
 }
+
+@media only screen and (max-width: 768px) {
+	.game {
+		margin: 0 15px;
+	}
+} 

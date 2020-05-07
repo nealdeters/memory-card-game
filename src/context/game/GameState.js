@@ -56,9 +56,13 @@ const GameState = props => {
       return card;
     }));
     _setCardsDispatch(cards);
+    setCounter(0);
+  }
+
+  const setCounter = (counter) => {
     dispatch({
       type: SET_COUNTER,
-      payload: 0
+      payload: counter
     })
   }
 
@@ -108,6 +112,7 @@ const GameState = props => {
         
         _setCardsDispatch(newCards);
         setSelectedCard(null);
+        setCounter(state.counter + 1);
         isGameFinished(newCards);
       }, 1000)
     } else {

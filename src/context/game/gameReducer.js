@@ -17,7 +17,6 @@ export default (state, action) => {
       return {
         ...state,
         selectedCard: action.payload,
-        counter: state.counter++,
         comparing: false
       };
     case SET_COMPARING:

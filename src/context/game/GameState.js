@@ -7,6 +7,7 @@ import {
   SET_CARDS,
   SET_SELECTED_CARD,
   SET_COMPARING,
+  SET_COUNTER,
   ERROR
 } from '../types';
 
@@ -14,6 +15,7 @@ const GameState = props => {
   const initialState = {
     cards: null,
     selectedCard: null,
+    counter: 0,
     loading: null,
     comparing: false
   };
@@ -48,10 +50,16 @@ const GameState = props => {
 
   const setCards = () => {
     const cards = _shuffle(cardsJson.map((card, index) => {
+      card.flipped = false;
+      card.cleared = false;
       return card;
     }));
 
     _setCardsDispatch(cards);
+    dispatch({
+      type: SET_COUNTER,
+      payload: 0
+    })
   }
 
   const insertSelected = (card1, card2) => {
@@ -129,6 +137,7 @@ const GameState = props => {
         cards: state.cards,
         comparing: state.comparing,
         selectedCard: state.selectedCard,
+        counter: state.counter,
         setCards,
         selectCard
       }}

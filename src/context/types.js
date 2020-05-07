@@ -1,3 +1,4 @@
 export const SET_CARDS = 'SET_CARDS';
 export const SET_SELECTED_CARD = 'SET_SELECTED_CARD';
 export const SET_COMPARING = 'SET_COMPARING';
+export const SET_COUNTER = 'SET_COUNTER';

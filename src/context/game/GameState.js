@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import GameContext from './gameContext';
 import gameReducer from './gameReducer';
 import cardsJson from '../../cards.json';
+import M from "materialize-css/dist/js/materialize.min.js";
 
 import {
   SET_CARDS,
@@ -54,7 +55,6 @@ const GameState = props => {
       card.cleared = false;
       return card;
     }));
-
     _setCardsDispatch(cards);
     dispatch({
       type: SET_COUNTER,
@@ -108,6 +108,7 @@ const GameState = props => {
         
         _setCardsDispatch(newCards);
         setSelectedCard(null);
+        isGameFinished(newCards);
       }, 1000)
     } else {
       setSelectedCard(card);
@@ -116,6 +117,16 @@ const GameState = props => {
 
   const _cardsAreEqual = (card1, card2) => {
     return card1.value === card2.value && card1.id !== card2.id;
+  }
+
+  const isGameFinished = (cards) => {
+    const gameFinished = cards.every(card => {
+      return card.cleared;
+    });
+
+    if(gameFinished){
+      M.toast({html: `Congratulations, you cleared the board in ${state.counter + 1} turns!`});
+    }
   }
 
   const setSelectedCard = (selectedCard) => {

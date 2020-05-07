@@ -6,7 +6,7 @@ const GameCard = ({ card }) => {
 	const { comparing, selectCard } = gameContext;
 
 	return (
-		<div className={`game-card col s3 ${card.flipped && card.cleared === false ? 'card-front' : 'card-back' } ${card.cleared === true ? 'card-cleared' : ''}`}
+		<div className={`game-card col s2 ${card.flipped && card.cleared === false ? 'card-front' : 'card-back' } ${card.cleared === true ? 'card-cleared' : ''}`}
 			onClick={ () => {
 				if(!comparing){
 					selectCard(card)
